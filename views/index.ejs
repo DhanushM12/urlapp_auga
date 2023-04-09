@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Url App</title>
+</head>
+<body>
+    <h1>Url shortner app</h1>
+    <form action="/shortUrls" method="post">
+        <input type="url" name="fullURL" placeholder="Enter the url" required>
+        <button type="submit">Shorten URL</button>
+    </form>
+    <br>
+    <table>
+        <thead>
+            <tr>
+                <th>Full Url</th>
+                <th>Short Url</th>
+                <th>Clicks</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% shortUrls.forEach(oneShort => { %>
+                <tr>
+                    <td><a href="<%= oneShort.full %>"><%= oneShort.full %></a></td>
+                    <td><a href="<%= oneShort.short %>"><%= oneShort.short %></a></td>
+                    <td><%= oneShort.clicks %></td>
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
+</body>
+</html>
